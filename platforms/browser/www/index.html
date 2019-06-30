@@ -1,4 +1,4 @@
-<!--<!DOCTYPE html>-->
+
 <!--<html>-->
     <!--<head>-->
         <!--<meta charset="utf-8" />-->
@@ -30,66 +30,94 @@
 
 
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 
 
     <style>
 
         /*@font-face {*/
             /*font-family: 'Tajawal', sans-serif;*/
-            /*src:local('..\fonts\Tajawal-Regular.ttf');*/
+            /*src:local('css/fonts/Tajawal-Regular.ttf');*/
         /*}*/
-        .page {
-            font-family: 'Tajawal', sans-serif;
+
+        @font-face {
+            font-family: "Tajawal";
+            src: url('fonts/Tajawal-Regular.ttf');/* relative path from the css file */
         }
-        div{
+        .page {
+            font-family: 'Tajawal' !important;
+            /*text-align: right !important;*/
+            /*direction: rtl !important;*/
+        }
+        div .rtl{
             font-family: 'Tajawal', sans-serif;
+            text-align: right;
+            direction: rtl ;
+        }
+        /*.toolbar--material__center{*/
+            /*font-family: 'Tajawal'!important;*/
+
+        /*}*/
+        .tabbar__label{
+            font-family: 'Tajawal'!important;
+        }
+        body{
+            font-family: 'Tajawal'!important;
+            /*text-align: right !important;*/
+            /*direction: rtl !important;*/
         }
     </style>
+<!--move to APIS file later-->
+    <script>
+
+    </script>
 </head>
 
 
-<body style="font-family: 'Tajawal', sans-serif;">
+<body>
 
 
 
 <ons-page>
-    <!--<ons-toolbar>-->
-
-        <!--&lt;!&ndash;<div class="left">&ndash;&gt;-->
-            <!--&lt;!&ndash;<ons-toolbar-button >&ndash;&gt;-->
-                <!--&lt;!&ndash;<ons-icon  icon="fa-cogs"></ons-icon>&ndash;&gt;-->
-            <!--&lt;!&ndash;</ons-toolbar-button>&ndash;&gt;-->
-        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-        <!--<div class="center">بازيلي</div>-->
-
-        <!--&lt;!&ndash;<div class="right">&ndash;&gt;-->
-            <!--&lt;!&ndash;<ons-toolbar-button>&ndash;&gt;-->
-                <!--&lt;!&ndash;<ons-icon icon="fa-bell-o"></ons-icon>&ndash;&gt;-->
-            <!--&lt;!&ndash;</ons-toolbar-button>&ndash;&gt;-->
-        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-
-    <!--</ons-toolbar>-->
-
-
-
     <ons-toolbar>
+        <div>
+
+        </div>
+
         <div class="left">
-            Left part
+            <ons-toolbar-button page="settings.html">
+                <ons-icon  icon="fa-cogs"></ons-icon>
+            </ons-toolbar-button>
         </div>
-        <div class="center">
-            Title here
+        <div class="" >
+          <p>
+              بازيلي
+          </p>
         </div>
+
         <div class="right">
-            Right part
+            <ons-toolbar-button>
+                <ons-icon icon="fa-bell-o"></ons-icon>
+            </ons-toolbar-button>
         </div>
+
+
     </ons-toolbar>
 
+
+
+
+
+
+
+    <!--footer-->
     <ons-tabbar swipeable position="bottom" >
         <ons-tab page="tab1.html" label="رئيسية" icon="ion-home, material:md-home" badge="7" active>
         </ons-tab>
@@ -104,9 +132,28 @@
 
 <template id="tab1.html">
     <ons-page id="Tab1">
-        <p style="text-align: center;">
-            This is the first page.
-        </p>
+        <!--<p style="text-align: center;">-->
+            <!--This is the first page.-->
+        <!--</p>-->
+        <ons-card>
+            <img src="https://monaca.io/img/logos/download_image_onsenui_01.png" alt="Onsen UI" style="width: 100%">
+            <div class="title rtl" id="userName">
+                Awesome framework
+            </div>
+
+            <div class="content">
+                <div>
+                    <ons-button><ons-icon icon="ion-thumbsup"></ons-icon></ons-button>
+                    <ons-button><ons-icon icon="ion-share"></ons-icon></ons-button>
+                </div>
+                <ons-list>
+                    <ons-list-header>Bindings</ons-list-header>
+                    <ons-list-item>Vue</ons-list-item>
+                    <ons-list-item>Angular</ons-list-item>
+                    <ons-list-item>React</ons-list-item>
+                </ons-list>
+            </div>
+        </ons-card>
     </ons-page>
 </template>
 
@@ -120,9 +167,9 @@
             <br>
             <section style="padding: 10%">
                 <p></p><br><br>
-        Click scan button to scan the QR code: <input type="button" value="scan" name = "scan" id="scan"/>
-
-                <ons-button id="scan" modifier="large" >إلتقاط</ons-button>
+        Click scan button to scan the QR code:
+        <br>
+                <ons-button id="scan" modifier="large" onclick="scan()">إلتقاط</ons-button>
             </section>
 
 
@@ -132,36 +179,15 @@
 
 <template id="tab3.html">
 <ons-page id="Tab3">
-    <ons-toolbar>
-        <div class="left">
-            <ons-toolbar-button>
-                <ons-icon icon="md-menu"></ons-icon>
-            </ons-toolbar-button>
-        </div>
-        <div class="center">Buttons</div>
-        <div class="right">
-            <ons-toolbar-button>Button</ons-toolbar-button>
-        </div>
-    </ons-toolbar>
+
 
     <section style="padding: 8px">
-        <ons-button modifier="quiet">quiet</ons-button>
-        <ons-button>Default</ons-button>
+
         <p></p>
-        <ons-button modifier="large--quiet">large--quiet / material--flat</ons-button>
-        <p></p>
-        <ons-button modifier="large">large</ons-button>
+        <ons-button modifier="large" onclick="getUserinfo();">get user info</ons-button>
     </section>
 
-    <section style="padding: 8px">
-        <p></p><br><br>
-        <ons-button modifier="quiet" disabled="true">quiet</ons-button>
-        <ons-button disabled="true">Default</ons-button>
-        <p></p>
-        <ons-button modifier="large--quiet" disabled="true">large--quiet / material--flat</ons-button>
-        <p></p>
-        <ons-button modifier="large" disabled="true">large</ons-button>
-    </section>
+
 </ons-page>
 </template>
 
@@ -182,8 +208,83 @@
 </template>
 
 
+<template id="settings.html">
+    <ons-page id="settings">
+        <!--<p style="text-align: center;">-->
+        <!--This is the first page.-->
+        <!--</p>-->
+        <ons-card>
+
+            <div class="content">
+                <div class="center">
+                    <ons-button><ons-icon icon="ion-thumbsup"></ons-icon></ons-button>
+                    <ons-button><ons-icon icon="ion-share"></ons-icon></ons-button>
+                </div>
+                <ons-list>
+                    <ons-list-header>Bindings</ons-list-header>
+                    <ons-list-item>Vue</ons-list-item>
+                    <ons-list-item>Angular</ons-list-item>
+                    <ons-list-item>React</ons-list-item>
+                </ons-list>
+            </div>
+        </ons-card>
+    </ons-page>
+</template>
+<script>
+
+    function scan() {
+        alert('hello');
+        console.log('request got here!');
+        try {
+            cordova.plugins.barcodeScanner.scan(
+                function (result) {
+                    alert("We got a barcode\n" +
+                        "Result: " + result.text + "\n" +
+                        "Format: " + result.format + "\n" +
+                        "Cancelled: " + result.cancelled);
+                },
+                function (error) {
+                    alert("Scanning failed: " + error);
+                });
+        }catch (e) {
+            alert(e)
+        }
+
+    }
+
+    function getUserinfo(){
+        alert('test');
+        $.ajax({
+            type: "POST",
+            url: "https://api.bazi.ly/v1/getInfo",
+            data: JSON.stringify({ "api_token":"lzmLHHC5euZS15pXLI6iLt4aRVFRpMQK3B9M2uuggcvMrzhNUP" }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(response) {
+
+                //entered in the success block means our service call is succeeded properly
+
+                var resp = JSON.stringify(response); // we are accessing the text from the json object(response) and then converting it in to the string format
+                console.log(JSON.stringify(response)); // print the response in console
+                alert(JSON.stringify(response)); // alert the response
+
+                var fullName = response.info.firstname + ' ' + response.info.lastname;
+                console.log(JSON.stringify(fullName));
+                // document.querySelector('#userName').value = "عربي&rlm "
+                document.querySelector('#userName').innerHTML = fullName;
+            },
+            error: function(request, status, error) {
+                console.log("Error status " + status);
+                console.log("Error request status text: " + request.statusText);
+                console.log("Error request status: " + request.status);
+                console.log("Error request response text: " + request.responseText);
+                console.log("Error response header: " + request.getAllResponseHeaders());
+            }
+        });
+    }
 
 
+</script>
 
 </body>
 </html>

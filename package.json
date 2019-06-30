@@ -1,0 +1,20 @@
+{
+  "devDependencies": {
+    "cordova-plugin-camera": "~2.1.1",
+    "cordova-plugin-media-capture": "~1.2.0",
+    "cordova-plugin-whitelist": "~1.2.1"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-camera": {},
+      "cordova-plugin-media-capture": {},
+      "cordova-plugin-whitelist": {},
+      "phonegap-plugin-barcodescanner": {},
+      "cordova-plugin-geolocation": {}
+    }
+  },
+  "dependencies": {
+    "cordova-android": "^8.0.0",
+    "cordova-android-support-gradle-release": "^3.0.0"
+  }
+}
